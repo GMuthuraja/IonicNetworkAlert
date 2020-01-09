@@ -15,7 +15,7 @@ import org.json.JSONArray;
 public class CustomAlert extends CordovaPlugin{
 
     //action  which will come from js file on www folder
-    public static final String ACTION_DISPLAY_ALERT = "displayAndroidAlert";
+    public static final String ACTION_DISPLAY_ALERT = "network";
 
     //plugin function which will invoked when user call the plugin in ionic 
     @Override
