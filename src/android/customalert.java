@@ -13,30 +13,34 @@ import org.json.JSONArray;
 
 public class CustomAlert extends CordovaPlugin{
 
-    public static final String ACTION_CHECK_NETWORK = "displayNetStatus";
+    public static final String ACTION_DISPLAY_ALERT = "displayAndroidAlert";
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext){
-        try{
-            if(ACTION_CHECK_NETWORK.equals(action)){
-                ConnectivityManager conn = (ConnectivityManager) this.cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+     try{
+         if(ACTION_DISPLAY_ALERT.equals(action)){
+             ConnectivityManager conn = (ConnectivityManager) this.cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo info = conn.getActiveNetworkInfo();
                 if(info != null && info.isConnected()) {
-                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK,"Internet Connected"));
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(this.cordova.getActivity());
+                    dialog.setTitle("Network Connected"));
+                    dialog.setMessage("You have connected to the network!");
+                    dialog.show();
+                    callbackContext.success("success");
+                     return true;
+                }else{
+                   AlertDialog.Builder dialog = new AlertDialog.Builder(this.cordova.getActivity());
+                    dialog.setTitle("No Network Access"));
+                    dialog.setMessage("Please check your network connection!");
+                    dialog.show();
+                    callbackContext.success("success");
+                     return true;
                 }
-                else{
-                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK,"Internet not Connected"));
-                }
-                return true;
-            }
-            else{
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.NO_RESULT,"Invalid Action"));
-                return false;
             }
         }
-        catch(Exception e){
-            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.NO_RESULT,e.getMessage()));
-            return false;
-        }
+     catch(Exception e){
+         callbackContext.error(e.getMessage());
+         return false;
+     }
     }
 }
