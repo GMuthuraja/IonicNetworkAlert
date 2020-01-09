@@ -36,6 +36,10 @@ public class CustomAlert extends CordovaPlugin{
                      return true;
                 }
             }
+            else{
+                callbackContext.error("wrong method");
+                return false;
+            }
         }
      catch(Exception e){
          callbackContext.error(e.getMessage());
