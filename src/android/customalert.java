@@ -1,32 +1,42 @@
 package cordova.plugin.raqmiyat.alert;
 
-import org.apache.cordova.CordovaPlugin;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.util.Log;
+import android.widget.Toast;
+
 import org.apache.cordova.CallbackContext;
-
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-/**
- * This class echoes a string called from JavaScript.
- */
-public class CustomAlert extends CordovaPlugin {
+public class CustomAlert extends CordovaPlugin{
+
+    public static final String ACTION_CHECK_NETWORK = "displayNetStatus";
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("coolMethod")) {
-            String message = args.getString(0);
-            this.coolMethod(message, callbackContext);
-            return true;
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext){
+        try{
+            if(ACTION_CHECK_NETWORK.equals(action)){
+                ConnectivityManager conn = (ConnectivityManager) this.cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = conn.getActiveNetworkInfo();
+                if(info != null && info.isConnected()) {
+                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK,"Internet Connected"));
+                }
+                else{
+                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK,"Internet not Connected"));
+                }
+                return true;
+            }
+            else{
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.NO_RESULT,"Invalid Action"));
+                return false;
+            }
         }
-        return false;
-    }
-
-    private void coolMethod(String message, CallbackContext callbackContext) {
-        if (message != null && message.length() > 0) {
-            callbackContext.success(message);
-        } else {
-            callbackContext.error("Expected one non-empty string argument.");
+        catch(Exception e){
+            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.NO_RESULT,e.getMessage()));
+            return false;
         }
     }
 }
