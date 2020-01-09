@@ -16,6 +16,8 @@
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml" />
+        <framework src="com.android.support:appcompat-v7:28.0.0" />
+        <source-file src="res/layout/my_dialog.xml" target-dir="res/layout/my_dialog.xml" />
         <source-file src="src/android/CustomAlert.java" target-dir="src/cordova/plugin/raqmiyat/alert/CustomAlert" />
     </platform>
     <platform name="ios">
