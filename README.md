@@ -17,8 +17,9 @@ description: Device's network status notification
 ```
 declare var CustomAlert: any; //paste it below the import section
 
-checkStatus() { //function call
-CustomAlert.coolMethod((response) => {
+//button onclick function 
+checkStatus() { 
+CustomAlert.networkCheck((response) => {
       console.log(response);
     }, (error => {
       console.log(error);
