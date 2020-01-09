@@ -23,14 +23,14 @@ public class CustomAlert extends CordovaPlugin{
                 NetworkInfo info = conn.getActiveNetworkInfo();
                 if(info != null && info.isConnected()) {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(this.cordova.getActivity());
-                    dialog.setTitle("Network Connected"));
+                    dialog.setTitle("Network Connected");
                     dialog.setMessage("You have connected to the network!");
                     dialog.show();
                     callbackContext.success("success");
                      return true;
                 }else{
                    AlertDialog.Builder dialog = new AlertDialog.Builder(this.cordova.getActivity());
-                    dialog.setTitle("No Network Access"));
+                    dialog.setTitle("No Network Access");
                     dialog.setMessage("Please check your network connection!");
                     dialog.show();
                     callbackContext.success("success");
