@@ -1,23 +1,37 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-raqmiyat-alert" version="7.0.0" 
+<plugin id="cordova-plugin-raqmiyat-alert" version="7.1.1" 
     xmlns="http://apache.org/cordova/ns/plugins/1.0" 
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Plugin name -->
     <name>CustomAlert</name>
+
+    <!-- js file which will interact with native code -->
     <js-module name="CustomAlert" src="www/customalert.js">
         <clobbers target="CustomAlert" />
     </js-module>
+
+    <!-- config of android platform -->
     <platform name="android">
+
+        <!-- define the android package and class file -->
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="CustomAlert">
                 <param name="android-package" value="cordova.plugin.raqmiyat.alert.CustomAlert" />
             </feature>
         </config-file>
+
+        <!--provides network permission -->
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml" />
+
+        <!-- specified the path of native code after installed-->
         <source-file src="src/android/CustomAlert.java" target-dir="src/cordova/plugin/raqmiyat/alert/CustomAlert" />
     </platform>
+
+    <!-- config of ios platform -->
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
             <feature name="CustomAlert">
