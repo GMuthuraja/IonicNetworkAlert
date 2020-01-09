@@ -13,8 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
-import org.apache.cordova.api.CallbackContext;
 import org.json.JSONArray;
 
 
@@ -33,10 +31,10 @@ public class CustomAlert extends CordovaPlugin{
                 final View customLayout = inflater.inflate(layout_dialog, (ViewGroup) this.cordova.getActivity().findViewById(layout_id));
                 int text_id = this.cordova.getActivity().getResources().getIdentifier("alert_title", "id", this.cordova.getActivity().getPackageName());
                 TextView title = (TextView) this.cordova.getActivity().findViewById(text_id);
-                    int button_id = this.cordova.getActivity().getResources().getIdentifier("ok_button", "id", this.cordova.getActivity().getPackageName());
+                int button_id = this.cordova.getActivity().getResources().getIdentifier("ok_button", "id", this.cordova.getActivity().getPackageName());
 
-                    ConnectivityManager conn = (ConnectivityManager) this.cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-                    NetworkInfo info = conn.getActiveNetworkInfo();
+                ConnectivityManager conn = (ConnectivityManager) this.cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo info = conn.getActiveNetworkInfo();
 
                 if(info != null && info.isConnected()) {    
             
