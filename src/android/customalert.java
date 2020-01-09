@@ -1,4 +1,4 @@
-package cordova-plugin-raqmiyat-alert;
+package cordova.plugin.raqmiyat.alert;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
