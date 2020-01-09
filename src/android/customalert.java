@@ -1,4 +1,4 @@
-package cordova.plugin.raqmiyat.alert;
+package cordova-plugin-raqmiyat-alert;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
@@ -10,7 +10,7 @@ import org.json.JSONObject;
 /**
  * This class echoes a string called from JavaScript.
  */
-public class customalert extends CordovaPlugin {
+public class CustomAlert extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {

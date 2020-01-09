@@ -2,25 +2,25 @@
 <plugin id="cordova-plugin-raqmiyat-alert" version="1.0.0" 
     xmlns="http://apache.org/cordova/ns/plugins/1.0" 
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>customalert</name>
-    <js-module name="customalert" src="www/customalert.js">
-        <clobbers target="customalert" />
+    <name>CustomAlert</name>
+    <js-module name="CustomAlert" src="www/customalert.js">
+        <clobbers target="CustomAlert" />
     </js-module>
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
-            <feature name="customalert">
-                <param name="android-package" value="cordova.plugin.raqmiyat.alert.customalert" />
+            <feature name="CustomAlert">
+                <param name="android-package" value="cordova.plugin.raqmiyat.alert.CustomAlert" />
             </feature>
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml" />
-        <source-file src="src/android/customalert.java" target-dir="src/cordova-plugin-raqmiyat-alert/customalert" />
+        <source-file src="src/android/CustomAlert.java" target-dir="src/cordova/plugin/raqmiyat/alert/CustomAlert" />
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
-            <feature name="customalert">
-                <param name="ios-package" value="customalert" />
+            <feature name="CustomAlert">
+                <param name="ios-package" value="CustomAlert" />
             </feature>
         </config-file>
-        <source-file src="src/ios/customalert.m" />
+        <source-file src="src/ios/CustomAlert.m" />
     </platform>
 </plugin>

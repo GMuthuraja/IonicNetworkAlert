@@ -1,15 +1,15 @@
-/********* customalert.m Cordova Plugin Implementation *******/
+/********* CustomAlert.m Cordova Plugin Implementation *******/
 
 #import <Cordova/CDV.h>
 
-@interface customalert : CDVPlugin {
+@interface CustomAlert : CDVPlugin {
   // Member variables go here.
 }
 
 - (void)coolMethod:(CDVInvokedUrlCommand*)command;
 @end
 
-@implementation customalert
+@implementation CustomAlert
 
 - (void)coolMethod:(CDVInvokedUrlCommand*)command
 {
