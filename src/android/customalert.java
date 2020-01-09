@@ -3,6 +3,7 @@ package cordova.plugin.raqmiyat.alert;
 import android.app.AlertDialog;
 import org.json.JSONObject;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import org.apache.cordova.CallbackContext;
