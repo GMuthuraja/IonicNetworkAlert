@@ -7,8 +7,8 @@ description: Device's network status notification
 
 
 ## Installation
-    cordova plugin add cordova-plugin-raqmiyat-alert (or)
-    cordova plugin add https://github.com/GMuthuraja/IonicNetworkAlert.git
+    ionic cordova plugin add cordova-plugin-raqmiyat-alert (or)
+    ionic cordova plugin add https://github.com/GMuthuraja/IonicNetworkAlert.git
 
 ## Supported Platforms
 - Android
