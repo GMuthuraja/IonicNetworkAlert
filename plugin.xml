@@ -39,5 +39,7 @@
             </feature>
         </config-file>
         <source-file src="src/ios/CustomAlert.m" />
+        <source-file src="src/ios/Reachability.m"/>
+        <source-file src="src/ios/Reachability.h"/>
     </platform>
 </plugin>
