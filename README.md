@@ -12,6 +12,7 @@ description: Device's network status notification
 
 ## Supported Platforms
 - Android
+-iOS
 
 ### How to Use
 ```
